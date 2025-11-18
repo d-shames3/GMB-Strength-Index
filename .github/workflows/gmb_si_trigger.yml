@@ -1,0 +1,31 @@
+name: Run Weekly GMB Strength Index
+
+on:
+    schedule:
+        - cron: '55 2 * * *'
+jobs:
+    run-weekly-si:
+        name: Weekly-SI
+        runs-on: ubuntu-latest
+        environment: production
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Install uv
+              uses: astral-sh/setup-uv@v5
+              with:
+                version: "0.6.9"
+
+            - name: Install python
+              run: uv python install
+
+            - name: Execute GMB SI
+              env:
+                LEAGUE_ID: ${{ secrets.LEAGUE_ID }}
+                SWID: ${{ secrets.SWID }}
+                ESPN_S2: ${{ secrets.ESPN_S2 }}
+                GMB_WHATSAPP_API_KEY: ${{ secrets.GMB_WHATSAPP_API_KEY }}
+                GMB_WHATSAPP_GROUP_ID: ${{ secrets.GMB_WHATSAPP_GROUP_ID }}
+              run: uv run main.py
