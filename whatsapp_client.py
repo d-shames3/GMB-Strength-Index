@@ -17,8 +17,7 @@ class WhatsAppClient():
         }
 
         response = requests.post(self._whatsapp_message_endpoint, json=payload, headers=headers)
-
-        print(response.json())
+        response.raise_for_status()
 
     def format_strength_index(self, strength_index):
         formatted_si = "Strength Index Rankings:\n"
