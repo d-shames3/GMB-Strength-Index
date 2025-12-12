@@ -24,7 +24,7 @@ class EspnStrengthIndexClient(League):
 
 
     def _get_strength_index(self): 
-        for i in range(14):
+        for i in range(15):
             week_scores=[]
 
             for team in self.current_standings:
@@ -38,9 +38,9 @@ class EspnStrengthIndexClient(League):
 
             week_si=[]
             for i, week_score in enumerate(week_scores):
-                week_si.append((week_score[0], i, 10-i))
+                week_si.append((week_score[0], i, 9-i))
                 self.strength_index_agg[week_score[0]][0]+=i
-                self.strength_index_agg[week_score[0]][1]+=10-i
+                self.strength_index_agg[week_score[0]][1]+=9-i
 
             self.weekly_scores.append(week_si)
 
