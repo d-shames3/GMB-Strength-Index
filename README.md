@@ -1,0 +1,2 @@
+# ESPN Strength Index
+A very important set of scripts to calculate hypothetical, cumulative head-to-head matchups of everyone in an ESPN Fantasy Football league and post the results to your WhatsApp group chat, using the ESPN python API and Wassenger. 
