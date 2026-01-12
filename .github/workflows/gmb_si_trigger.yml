@@ -1,8 +1,9 @@
 name: Run Weekly GMB Strength Index
 
 on:
-    schedule:
-        - cron: '0 17 * * 2'
+    # shutting off schedule during off season
+    #schedule:
+        #- cron: '0 17 * * 2'
     workflow_dispatch:
       
 jobs:
